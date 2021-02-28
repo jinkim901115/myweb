@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>마북 위치</title>
+<link href="css/main.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<h1 style="text-align: center; padding: 10px;" >오시는길</h1>	
+	<div id="wrap">	
+<div id="googleMap" style="width:950px;height:400px;margin:10px;margin-top: 40px;"></div>
+<p style="font-size: 20px; text-align: center; text-decoration: underline;">주소 : 경기도 성남시 수정구 복정동 715-7</p><br>
+<p style="font-size: 20px; text-align: center; text-decoration: underline;">대표전화 :  031-123-1234</p><br>
+<p style="font-size: 20px; text-align: center; text-decoration: underline;">지하철 이용시: 가천대역 2번 출구에서 10분 거리</p><br>
+<p style="font-size: 20px; text-align: center; text-decoration: underline;">버스 이용시: 301, 302, 505</p><br>
+
+<script>
+function myMap() {
+	// 구글맵의  property 지정
+	var mapProp = {
+        // 지도 중심 좌표 (lat, lng)
+        center: new google.maps.LatLng(37.453246, 127.127806),
+
+        // zoom level
+        zoom : 17
+    }
+
+    var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+
+	// 애니메이션 마커
+	var myPos2 = {lat: 37.453246, lng: 127.127806};
+	var marker2 = new google.maps.Marker({
+		position: myPos2,
+		animation: google.maps.Animation.BOUNCE
+	});
+    var infowindow = new google.maps.InfoWindow({
+		content: "Mybook store"
+	});
+	infowindow.open(map, marker2);
+	marker2.setMap(map);
+	
+}
+
+	
+</script>
+
+<!-- ↓key=API키, callback=함수 지정 -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2fn1bnwLmAsx2z4AHtePaF40bswlfHmI&callback=myMap"></script>
+</div>
+</body>
+</html>

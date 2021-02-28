@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>마북</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="css/main.css" rel="stylesheet" type="text/css">
+
+	<!-- 자바 스크립트 적용 -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="JS/main.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+	
+	<div id="wrap">
+		<header>
+		
+			<div id="login_join">
+				<button id="login" onclick="document.getElementById('id01').style.display='block'" 
+					style="width:auto;">로그인</button> | <button id="join" onclick="document.getElementById('id02')
+						.style.display='block'" style="width:auto;">회원가입</button>
+			</div>
+
+			<div class="clear"> 
+	
+			<!-- 로고 삽입 -->		
+			<div id="logo">	
+				<img alt="MyBook" src="images/logo.jpg" width="265" height="100">		
+			</div>
+
+			<!-- 소제목 -->
+			<nav id="top_menu">
+				<div class="topnav">
+					<ul>
+						<li><a href="index.html" class="target">HOME</a></li>
+						<li><a href="location.html">위치</a></li>
+						<div id="top_menus" onclick="prepar()">
+							<li><a href="#">신간 도서</a></li>
+							<li><a href="#">베스트 도서</a></li>
+							<li><a href="#">상점</a></li>
+						</div>
+					</ul>
+				</div>
+			</nav>
+		
+		</header>
+
+		<!-- 로그인 레이아웃 -->
+		<div id="id01" class="model">
+			<form class="model-content1 animate" action="index.html">
+				
+				<div class="imgcontainer">
+					<span onclick="document.getElementById('id01').style.display='none'" 
+						class="close" title="Close Model">&times;</span>
+
+						<br><br><br><br>
+						<img src="images/login.jpg" style="margin: auto;">
+						<br><br><br><br>
+
+				</div>
+
+				<div class="container">
+					<input type="text" placeholder="아이디" name="uname" required>
+					<br>
+					<input type="password" placeholder="비밀번호" name="psw" required>
+					<br><br>
+
+					<button id="loginbtn" type=submit>Login</button>
+
+					<label>
+						<input type="checkbox" checked="checked" name="remember"> 아이디 기억하기
+					</label>
+					<br><br><br><br>
+				</div>
+		
+				<div class="container" style="background-color:#f1f1f1">
+					<button type="button" onclick="document.getElementById('id01').style.display='none'" 
+						class="cancelbtn">취소</button>
+					<span class="psw">비밀번호를 잃어버리셨나요? <a href="#">비밀번호 찾기</a></span>
+					<br>
+				</div>
+			</form>
+		</div>
+
+		
+		<!-- 회원가입 레이아웃 -->
+		<div id="id02" class="model">
+			<span onclick="document.getElementById('id02').style.display='none'" 
+				class="clo" title="Close Model">&times;</span>
+			
+			<form class="model-content2">
+
+				<div class="container2" action="index.html">
+					<h1>회원가입</h1>
+					<p>아래의 필수사항을 누락하지 말고 모두 입력해주세요</p>
+					<hr>
+					<label for="id"><b>아이디(필수)</b></label>
+					<input type="text" name="id" required>
+
+					<label for="psw"><b>비밀번호(필수)</b></label>
+					<input type="password" class='pws1' name="psw" required>
+			
+					<label for="psw-repeat"><b>비밀번호 재확인(필수)</b></label>
+					<input type="password" class='pws2' name="psw-repeat" required>
+
+					<label for="name"><b>이름(필수)</b></label>
+					<input type="text" name="name" required>
+
+					<label for="phoneNum" style="display: block; width: 100%;"><b>휴대전화(선택)</b></label>
+					<select name="phone">
+						<option value="010" selected>010</option>
+						<option value="011">011</option>
+						<option value="016">016</option>
+						<option value="017">017</option>
+						<option value="018">018</option>
+						<option value="019">019</option>
+					</select>
+					<input class="num" id="num1" type="text" value="-" disabled>
+					<input name = "phoneNum" type="number" maxlength="4" size="4">
+					<input id="num2" type="text" value="-"disabled>
+					<input class="num" name = "phoneNum" type="number" maxlength="4" size="4">
+					
+					<div class="cheboxfix">
+						<input type="checkbox" id="chk_all" class="chk" name="agreeAll"/> 이용약관(필수), 개인정보 수집 및 이용(필수), 광고 및 프로모션 알림 수신(선택) 모두 동의합니다.<br>
+						
+						<input type="checkbox" class="chk chkneed1" name="agree" required/> 마북 이용약관 동의 (필수)
+						<button id="agree1btn" type="button"><a href="join/use_term.html" target="_blank">약관확인</a></button>
+						<br>
+
+						<input type="checkbox" class="chk chkneed2" name="agree" required/> 마북 개인정보 수집 및 이용에 대한 안내 (필수)
+						<button id="agree2btn"><a href="join/personal.html" target="_blank">약관확인</a></button>
+						<br>
+
+						<input type="checkbox" class="chk" name="agree"/> 광고 및 프로모션 등 SMS 수신 동의(선택)<br>
+					</div>
+
+					<div class="clearfix">
+						<button type="button" onclick="document.getElementById('id02').style.display='none'" 
+							class="canbtn">취소</button>
+						<button type="submit" class="signupbtn">완료</button>
+					</div>
+
+				</div>
+
+			</form>
+
+		</div>
+
+		<div class="clear"></div>
+
+		<!-- 베스트 셀러 노출 -->
+		<article id="best_seller">
+			<!-- 슬라이드 쇼를 통해 노출-->
+			<div class="slideshow-container">
+				<div class="mySlides fade">
+					<img src="images/total/total1.jpg">
+					<img src="images/total/total2.jpg">
+					<img src="images/total/total3.jpg">
+					<img src="images/total/total4.jpg">
+					<img src="images/total/total5.jpg">
+					
+					<div class="text">종합(Top5)</div>
+				</div>
+
+				<div class="mySlides fade">
+					<img src="images/novel/novel1.jpg">
+					<img src="images/novel/novel2.jpg">
+					<img src="images/novel/novel3.jpg">
+					<img src="images/novel/novel4.jpg">
+					<img src="images/novel/novel5.jpg"">
+
+					<div class="text">소설(top5)</div>
+				</div>
+				
+				<div class="mySlides fade">
+					<img src="images/youth/youth1.jpg">
+					<img src="images/youth/youth2.jpg">
+					<img src="images/youth/youth3.jpg">
+					<img src="images/youth/youth4.jpg">
+					<img src="images/youth/youth5.jpg">
+					
+					<div class="text">청소년(Top5)</div>
+				</div>
+				
+				<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+				<a class="next" onclick="plusSlides(1)">&#10095;</a>
+				
+			</div>
+
+			<div class = "pagination" style="text-align:center">
+				<span class="dot" onclick="currentSlide(1)"></span> 
+				<span class="dot" onclick="currentSlide(2)"></span> 
+				<span class="dot" onclick="currentSlide(3)"></span> 
+			</div>
+		</article>
+
+
+		<div class="clear"></div>
+		
+
+		<!-- 중고장터 글 노출 -->
+		<article id="used_market">
+
+			<div class="text_market">중고장터</div>
+			
+			<div id="main_userd_market">
+				<table id="table1">
+					<tr>
+						<th class="no">No</th><th class="title">책제목</th><th class="price">가격</th>
+					</tr>
+					<tr>
+						<td class="no">1</td><td class="title">회계 천재가 된 홍대리</td><td class="price">12,420원</td>
+					</tr>
+					<tr>
+						<td class="no">2</td><td class="title">장미와 찔레 2</td><td class="price">10,000원</td>
+					</tr>
+					<tr>
+						<td class="no">3</td><td class="title">777 다이어트</td><td class="price">10,900원</td>
+					</tr>
+					<tr>
+						<td class="no">4</td><td class="title">13월</td><td class="price">12,600원</td>
+					</tr>
+					<tr>
+						<td class="no">5</td><td class="title">청소년을 위한 한국사</td><td class="price">4,500원</td>
+					</tr>
+					<tr>
+						<td class="no">6</td><td class="title">셜록 홈즈 장편 전집 Y 시리즈</td><td class="price">5,800원</td>
+					</tr>
+					<tr>
+						<td class="no">7</td><td class="title">아내를 죽였습니까</td><td class="price">8,000원</td>
+					</tr>
+					<tr>
+						<td class="no">8</td><td class="title">해시태그 푸켓 </td><td class="price">7,000원</td>
+					</tr>
+					<tr>
+						<td class="no">9</td><td class="title">안소연의 성우되는 (하드커버 리커버</td><td class="price">10,500원</td>
+					</tr>
+					<tr>
+						<td class="no">10</td><td class="title">도령의 가족 2</td><td class="price">4,000원</td>
+					</tr>
+				</table>
+			
+			</div>
+		</article>
+
+		<div class="clear"></div>
+		
+		<!-- footer -->
+		<footer>
+			<hr>
+			<div id="copy">
+				All contents Copyright 2020 MABOOK STORE Inc. all rights reserved<br>
+				Contact mail : bjk1115@naver.com Tel: +82 010 1234 5678 Fax +82 02 1234 5679
+			</div>
+
+			<div id="social">
+				<img src="images/facebook.gif" width="33" height="33" alt="Facebook">
+				<img src="images/twitter.gif" width="33" height="34" alt="Twitter">
+			</div>
+		</footer>
+	</div>
+
+</body>
+</html>
